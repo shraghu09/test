@@ -1,0 +1,33 @@
+package generic;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+
+public class Basepage {
+	
+	public WebDriver driver;
+	
+	public Basepage(WebDriver driver)
+	{
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+		
+		
+	}
+	
+	public void verifytitle(String title)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.titleContains(title));
+		Reporter.log("title is matching",true);
+		
+	}
+	public void geturl(String url)
+	{
+		Reporter.log("url is matching",true);
+	}
+
+}

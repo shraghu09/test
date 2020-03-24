@@ -1,0 +1,50 @@
+package generic;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Prop {
+	
+	static WebDriver driver;
+	static Properties prop;
+	
+	public Prop() throws IOException
+	{
+		prop=new Properties();
+		FileInputStream fs = new FileInputStream("D:\\ecomspencer\\spencer\\config\\config.properties");
+	    prop.load(fs);
+	}
+	
+	
+	public void initialization()
+	{
+		String browsername = prop.getProperty("browser");
+		if(browsername.equals("chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		    driver=new ChromeDriver();
+		}
+		else if(browsername.equals("FF"))
+		{
+			System.setProperty("webdriver.gecko.driver", "./driver/geckodriver.exe");
+		    driver=new FirefoxDriver();
+		}
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.get(prop.getProperty("url"));
+		
+	}
+	
+	
+	
+
+}

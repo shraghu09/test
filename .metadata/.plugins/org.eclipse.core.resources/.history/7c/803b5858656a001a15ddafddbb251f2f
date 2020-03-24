@@ -1,0 +1,68 @@
+package testScripts;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import generic.Basetest;
+import pages.Loginpage;
+import pages.Offer;
+
+public class LoginTest extends Basetest {
+
+	
+	public LoginTest() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	Loginpage lp = new Loginpage(driver);
+	Offer off=new Offer(driver);
+	
+	@Test(priority=2)
+	public void runapp() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		lp.clicksigninlink();
+		lp.clicklogin();
+		lp.enteremail(prop.getProperty("username"));
+		lp.enterpass(prop.getProperty("password"));
+		lp.clicksignin();
+	}
+	
+	@Test(priority=3)
+	public void verifytitle()
+	{
+		String etitle = "Online Grocery Shopping | Grocery Store in India - Spencers";
+		if(driver.getTitle().contains(etitle))
+		{
+			System.out.println("title matched");
+		}
+		else
+		{
+			System.out.println("not matched");
+		}
+		
+	}
+	@Test(priority=4)
+	public void verifyurl() {
+		String eurl = "spencer";
+		if(driver.getCurrentUrl().equals(eurl))
+		{
+			System.out.println("url is matched");
+		}
+		else
+		{
+			System.out.println("url is not matched");
+		}
+	}
+	
+	@Test(priority=1)
+	public void selectoffer() {
+		
+		lp.seloffer();
+		off.clickoffer1();
+		
+	}
+
+}
+

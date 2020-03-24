@@ -1,0 +1,8 @@
+package util;
+
+public class Utility {
+	
+	static long pageloadtime =50;
+	static long implicitwait =50;
+
+}

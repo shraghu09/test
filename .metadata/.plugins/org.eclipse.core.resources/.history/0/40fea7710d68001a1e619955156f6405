@@ -1,0 +1,14 @@
+package testScripts;
+
+import java.io.IOException;
+
+import generic.Basetest;
+
+public class LoginTest extends Basetest {
+
+	public LoginTest() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+}

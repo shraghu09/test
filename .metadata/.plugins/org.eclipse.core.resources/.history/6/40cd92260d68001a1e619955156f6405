@@ -1,0 +1,26 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import generic.Basepage;
+
+public class Loginpage extends Basepage{
+	
+	@FindBy(xpath="//button[@class='action switch active']")
+	private WebElement clickforsigninlink;
+		
+	
+		
+	
+;
+	public Loginpage(WebDriver driver)
+	{
+		super(driver);
+	
+		PageFactory.initElements(driver, this);
+
+}
+}

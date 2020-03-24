@@ -1,0 +1,30 @@
+package generic;
+
+import java.io.IOException;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class Basetest extends Prop {
+
+	public Basetest() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	@BeforeMethod
+	public void openbrowser()
+	{
+		initialization();
+	}
+	
+//	@AfterMethod
+//	public void teardown()
+//	{
+//		driver.quit();
+		
+	//}
+	
+	
+
+}

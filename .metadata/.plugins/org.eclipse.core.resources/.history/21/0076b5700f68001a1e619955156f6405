@@ -1,0 +1,37 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import generic.Basepage;
+
+public class Loginpage extends Basepage{
+	
+	@FindBy(xpath="//button[@class='action switch active']")
+	private WebElement clickforsigninlink;
+		
+	@FindBy(xpath="(//div[@class='view_my_acount'])[1]")
+	private WebElement clocklogin;
+		
+	
+;
+	public Loginpage(WebDriver driver)
+	{
+		super(driver);
+	
+		PageFactory.initElements(driver, this);
+
+}
+	
+	public void clicksigninlink()
+	{
+		clickforsigninlink.click();
+	}
+	
+	public void clicklogin()
+	{
+		clocklogin.click();
+	}
+}
