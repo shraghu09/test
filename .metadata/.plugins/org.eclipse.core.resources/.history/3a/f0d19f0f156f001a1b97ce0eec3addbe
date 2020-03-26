@@ -52,7 +52,7 @@ public class LoginTest extends Basetest {
 		}
 		else
 		{
-			System.out.println("url is not matched and not same");
+			System.out.println("url is not matched");
 		}
 	}
 	
